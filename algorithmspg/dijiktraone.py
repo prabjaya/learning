@@ -1,0 +1,59 @@
+import heapq
+
+def dijkstra(graph, start):
+    dist = {node: float('inf') for node in graph}
+    dist[start] = 0
+    parent = {node: None for node in graph}
+    pq = [(0, start)]
+
+    while pq:
+        current_dist, node = heapq.heappop(pq)
+        if current_dist > dist[node]:
+            continue
+
+        for neighbor, weight in graph[node]:
+            new_dist = current_dist + weight
+            if new_dist < dist[neighbor]:
+                dist[neighbor] = new_dist
+                parent[neighbor] = node
+                heapq.heappush(pq, (new_dist, neighbor))
+
+    return dist, parent
+
+
+def shortest_path(parent, start, target):
+    path = []
+    while target is not None:
+        path.append(target)
+        target = parent[target]
+    path.reverse()
+    return path if path[0] == start else []
+
+
+# Example graph
+graph = {
+    'A': [('B', 4), ('C', 2)],
+    'B': [('C', 5), ('D', 10)],
+    'C': [('E', 3)],
+    'D': [],
+    'E': [('D', 4)]
+}
+
+# Choose source and target
+start_node = 'A'
+target_node = 'D'
+
+# Run Dijkstra
+dist, parent = dijkstra(graph, start_node)
+path = shortest_path(parent, start_node, target_node)
+
+# Show one shortest path
+if path:
+    print(f"Shortest path from {start_node} to {target_node}: {path}")
+    print(f"Total distance: {dist[target_node]}")
+else:
+    print(f"No path found from {start_node} to {target_node}.")
+# Final Summary
+# Resource	Complexity	Explanation
+# Time	O((V + E) log V)	Dijkstra using binary heap
+# Space	O(V + E)	Graph + auxiliary structures
