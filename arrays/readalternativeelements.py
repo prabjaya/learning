@@ -13,3 +13,20 @@ def alternativeelements(arr):
     return result
 print()
 print(alternativeelements(arr))
+
+
+
+arrs = [1,2,3,4,5,6,7,8,9,0]
+print(arrs)
+
+for i in range(1,len(arr),2):
+    print(arr[i])
+
+
+def altersecond(arrs):
+    results = []
+    for i in range(1,len(arrs),2):
+        results.append(arrs[i])
+    return results
+print()
+print(altersecond(arrs))

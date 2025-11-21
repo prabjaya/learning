@@ -13,8 +13,3 @@ def readalternative(arr):
     return result
 
 print(readalternative(arr))
-
-
-
-
-arras = []

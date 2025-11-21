@@ -1,0 +1,19 @@
+def twosum(nums,target):
+    pair = []
+    map={}
+
+    for i in range(len(nums)):
+        complement = target - nums[i]
+        if complement in map:
+            pair.append([map[complement],i])
+        map[nums[i]] = i
+    return pair
+
+
+nums = [1,2,3,4,5,6,7,8,9]
+target = 5
+
+print(twosum(nums,target))
+
+
+
