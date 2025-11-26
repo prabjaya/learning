@@ -15,5 +15,3 @@ target = 5
 
 print(twosum(nums,target))
 
-
-

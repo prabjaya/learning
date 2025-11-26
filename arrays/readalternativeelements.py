@@ -30,3 +30,9 @@ def altersecond(arrs):
     return results
 print()
 print(altersecond(arrs))
+
+
+ars = [1,2,3,4,5,6,7,8,9,0,20,30,90,899]
+reult1 =altersecond(ars) 
+assert len(reult1) == 7
+print(reult1)
