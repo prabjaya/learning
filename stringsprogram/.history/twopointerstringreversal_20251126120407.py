@@ -1,0 +1,2 @@
+def twopointer_string(chars):
+    

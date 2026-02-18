@@ -1,0 +1,1 @@
+def twopointer_string
